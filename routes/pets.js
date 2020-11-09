@@ -64,7 +64,7 @@ app.get('/search', (req, res) => {
     {'name': term},
     {'species': term}
   ]}).exec((err, pets) => {
-    res.render('pets-index', { pets: pets });
+    res.render('pets-index', { pets: results.docs, pagesCount: results.pages, currentPage: page, term: req.query.term });
   })
 });
 }
